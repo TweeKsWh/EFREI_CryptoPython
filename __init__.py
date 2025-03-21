@@ -30,9 +30,9 @@ def decrypt(encrypted_value):
     try:
         # Décrypter la valeur
         decrypted_value = f.decrypt(encrypted_value.encode())
-        return jsonify({"decrypted_value": decrypted_value.decode()})
+        return f"Valeur décryptée : {decrypted_value.decode()}"
     except Exception as e:
-        return jsonify({"error": str(e)}), 400
+        return f"Erreur lors du décryptage : {str(e)}", 400
 
 if __name__ == "__main__":
     app.run(debug=True)
