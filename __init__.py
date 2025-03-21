@@ -17,7 +17,7 @@ def encryptage():
             f = Fernet(key)
             valeur_bytes = valeur.encode()  # Conversion str -> bytes
             token = f.encrypt(valeur_bytes)  # Encrypt la valeur
-            return f"Valeur encryptée : {token.decode()}"  # Retourne le token en str
+            return render_template('encrypt_result.html', encrypted_value=token.decode())
         except Exception as e:
             return f"Erreur lors de l'encryptage : {str(e)}", 400
 
@@ -33,7 +33,7 @@ def decrypt():
             f = Fernet(key)
             # Décrypter la valeur
             decrypted_value = f.decrypt(encrypted_value.encode())
-            return f"Valeur décryptée : {decrypted_value.decode()}"
+            return render_template('decrypt_result.html', decrypted_value=decrypted_value.decode())
         except InvalidToken as e:
             return f"Erreur de décryptage : {str(e)}", 400
         except Exception as e:
