@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Encryptage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Encrypter une valeur</h1>
-    <form action="/encrypt" method="post">
-        <label for="valeur">Valeur à encrypter :</label>
-        <input type="text" id="valeur" name="valeur" required><br><br>
-        <label for="key">Clé personnalisée :</label>
-        <input type="text" id="key" name="key" required><br><br>
-        <input type="submit" value="Encrypter">
-    </form>
+    <div class="container">
+        <h1>Encrypter une valeur</h1>
+        <form action="/encrypt" method="post">
+            <label for="valeur">Valeur à encrypter :</label>
+            <input type="text" id="valeur" name="valeur" required>
+            <label for="key">Clé personnalisée :</label>
+            <input type="text" id="key" name="key" required>
+            <input type="submit" value="Encrypter">
+        </form>
+    </div>
 </body>
 </html>
