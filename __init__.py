@@ -18,14 +18,8 @@ def encryptage(valeur):
     token = f.encrypt(valeur_bytes)  # Encrypt la valeur
     return f"Valeur encryptée : {token.decode()}"  # Retourne le token en str
 
-@app.route('/decrypt/', methods=['POST'])
-def decrypt():
-    data = request.get_json()
-    encrypted_value = data.get('value')
-
-    if not encrypted_value:
-        return jsonify({"error": "No value provided"}), 400
-
+@app.route('/decrypt/<string:encrypted_value>', methods=['GET'])
+def decrypt(encrypted_value):
     try:
         # Décrypter la valeur
         decrypted_value = f.decrypt(encrypted_value.encode())
