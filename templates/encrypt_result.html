@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Résultat de l'encryptage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Résultat de l'encryptage</h1>
+        <p>Valeur encryptée : {{ encrypted_value }}</p>
+        <a href="/encrypt">Encrypter une autre valeur</a>
+    </div>
+</body>
+</html>
