@@ -1,11 +1,18 @@
 from cryptography.fernet import Fernet
-from flask import Flask, request, jsonify, render_template
-import sqlite3
+from flask import Flask, jsonify, render_template
+import os
 
 app = Flask(__name__)
 
-# Clé de cryptage (dans un vrai scénario, stockez cette clé en sécurité)
-key = Fernet.generate_key()
+# Vérifier si la clé existe déjà, sinon la générer et la sauvegarder
+if os.path.exists('secret.key'):
+    with open('secret.key', 'rb') as key_file:
+        key = key_file.read()
+else:
+    key = Fernet.generate_key()
+    with open('secret.key', 'wb') as key_file:
+        key_file.write(key)
+
 f = Fernet(key)
 
 @app.route('/')
