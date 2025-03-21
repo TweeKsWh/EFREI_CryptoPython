@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Décryptage</title>
+</head>
+<body>
+    <h1>Décrypter une valeur</h1>
+    <form action="/decrypt" method="post">
+        <label for="encrypted_value">Valeur cryptée :</label>
+        <input type="text" id="encrypted_value" name="encrypted_value" required><br><br>
+        <label for="key">Clé personnalisée :</label>
+        <input type="text" id="key" name="key" required><br><br>
+        <input type="submit" value="Décrypter">
+    </form>
+</body>
+</html>
