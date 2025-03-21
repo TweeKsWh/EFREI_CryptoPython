@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Résultat du décryptage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Résultat du décryptage</h1>
+        <p>Valeur décryptée : {{ decrypted_value }}</p>
+        <a href="/decrypt">Décrypter une autre valeur</a>
+    </div>
+</body>
+</html>
